@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">BluetoothConnection</string>
+    <string-array name="modules">
+        <item>Вентилятор хол. воздуха</item>
+        <item>Вентилятор гор. воздуха</item>
+        <item>Нагреватель</item>
+        <item>Моторчик</item>
+    </string-array>
+    <string-array name="statuses">
+        <item>Включить</item>
+        <item>Отключить</item>
+    </string-array>
+</resources>
