@@ -2,8 +2,8 @@ package com.example.bluetoothconnection
 
 import java.sql.Time
 
-data class Settings( var fan_c: Boolean,
-                     var fan_h: Boolean,
+data class Settings( var fan_c: Int,
+                     var fan_h: Int,
                      var heat: Boolean,
                      var servo: Int,
                      var mod: Int,

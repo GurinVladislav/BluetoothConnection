@@ -24,7 +24,7 @@ class MainActivity : Activity() {
     private val sb = StringBuilder()
     private var mConnectedThread: ConnectedThread? = null
     private lateinit var binding: ActivityMainBinding
-    var settings = Settings(false, false, false, 0, 0, arrayOf(0, 0, 0))
+    var settings = Settings(0, 0, false, 0, 0, arrayOf(0, 0, 0))
     var data = Data(arrayOf(0, 0), arrayOf(0, 0), arrayOf(0, 0, 0))
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,17 +64,17 @@ class MainActivity : Activity() {
             REQUEST_ID = 0
             mConnectedThread!!.write("%{\"type\":\"g_state_module\"}@")
             var string = "Состояние устройства:\n"
-            if(settings.fan_c){
-                string += "Вентилятор хол. воздуха: включён\n"
-            }
-            else{
+            if(settings.fan_c == 0){
                 string += "Вентилятор хол. воздуха: отключён\n"
             }
-            if(settings.fan_h){
-                string += "Вентилятор гор. воздуха: включён\n"
+            else{
+                string += "Мощность вентилятора хол. воздуха:" + (settings.fan_c/65535*100).toString() +  "%\n"
+            }
+            if(settings.fan_h == 0){
+                string += "Вентилятор гор. воздуха: отключён\n"
             }
             else{
-                string += "Вентилятор гор. воздуха: отключён\n"
+                string += "Мощность вентилятора гор. воздуха:" + (settings.fan_h/65535*100).toString() +  "%\n"
             }
             if(settings.heat){
                 string += "Нагреватель: включен\n"
